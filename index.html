@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+    body {
+	background-color: #666;
+	padding: 6em;
+}
+
+.effect {
+	position: relative;
+	width: 300px;
+	height: 440px;
+	background-size: cover;
+	background-position: center;
+	box-shadow: 0 0 20px rgba(#000, 0.3);
+	overflow: hidden;
+}
+.effect::after {
+		content: "";
+		position: absolute;
+		width: 300px;
+		height: 440px;
+		background: white;
+		mix-blend-mode: saturation;
+		animation: in-out 6s ease-in-out infinite;
+		border-right: 1px solid rgba(black, 0.5);
+}
+
+@keyframes in-out {
+	0% {
+		transform: translateX(-100%);
+	}
+	50% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+</style>
+</head>
+<body>
+    <div class="effect"></div>
+    <script>
+    function imageConverter(img){
+    let element= document.getElementsByClassName('effect');
+    element[0].setAttribute('style','background-image : url('+img+')')
+    }
+    imageConverter('https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg')
+    </script>
+</body>
+</html>
